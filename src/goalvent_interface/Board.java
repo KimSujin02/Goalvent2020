@@ -1,6 +1,8 @@
-package goalvent;
+package goalvent_interface;
 
 import java.util.Vector;
+
+import goalvent.BoardDTO;
 
 public interface Board {
 	//±Û ¾²±â

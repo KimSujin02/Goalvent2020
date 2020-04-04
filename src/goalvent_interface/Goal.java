@@ -1,4 +1,6 @@
-package goalvent;
+package goalvent_interface;
+
+import goalvent.GoalDTO;
 
 public interface Goal {
 	// 목표 글 올리기

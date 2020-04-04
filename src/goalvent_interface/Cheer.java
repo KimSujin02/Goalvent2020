@@ -1,4 +1,6 @@
-package goalvent;
+package goalvent_interface;
+
+import goalvent.CheerDTO;
 
 public interface Cheer {
 	//응원의 글 쓰기

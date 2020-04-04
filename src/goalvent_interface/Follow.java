@@ -1,4 +1,4 @@
-package goalvent;
+package goalvent_interface;
 
 import java.util.Vector;
 

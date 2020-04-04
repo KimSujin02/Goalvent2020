@@ -1,4 +1,6 @@
-package goalvent;
+package goalvent_interface;
+
+import goalvent.MemberDTO;
 
 public interface Member {
 	// 회원 가입하기
