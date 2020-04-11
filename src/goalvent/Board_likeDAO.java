@@ -5,7 +5,7 @@ import java.util.*;
 
 import goalvent_interface.like;
 
-public class Board_liikeDAO implements like {
+public class Board_likeDAO implements like {
 	
 	Connection conn;
 	PreparedStatement pstmt;
@@ -14,14 +14,8 @@ public class Board_liikeDAO implements like {
 	
 	DBConnectionMgr dbcp;
 	
-	public Board_liikeDAO() { //생성자 
+	public Board_likeDAO() { //생성자 
 		dbcp = DBConnectionMgr.getInstance();
-		try {
-			conn = dbcp.getConnection();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 	@Override
@@ -29,14 +23,14 @@ public class Board_liikeDAO implements like {
 		int result = 1; // 성공 1 실패 0
 		sql = "INSERT INTO board_like VALUES(?, ?, ?)";
 		try {
+			conn = dbcp.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setString(2, liker);
 			pstmt.setString(3, date);
 			pstmt.executeUpdate();
-			sql = "UPDATE board SET like=like+1 WHERE num=?";
+			sql = "UPDATE board SET like=like+1 WHERE num=1";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, num);
 			pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -51,6 +45,7 @@ public class Board_liikeDAO implements like {
 		int result = 1; // 성공 1 실패 0
 		sql = "DELETE * FROM board_like WHERE num=?, liker=?";
 		try {
+			conn = dbcp.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setString(2, liker);
@@ -72,6 +67,7 @@ public class Board_liikeDAO implements like {
 		int result = 1; // 좋아요를 눌렀으면 1 아니면 0 정보 가져오기 실패하면 18
 		sql = "SELECT * FROM board_like WHERE num=?, liker=?";
 		try {
+			conn = dbcp.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setString(2, liker);
@@ -95,6 +91,7 @@ public class Board_liikeDAO implements like {
 		String id = "";
 		sql = "SELECT liker FROM board_like WHERE num=?";
 		try {
+			conn = dbcp.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
@@ -117,6 +114,7 @@ public class Board_liikeDAO implements like {
 		int num;
 		sql = "SELECT num FROM board_like WHERE liker=? ORDER BY date DESC";
 		try {
+			conn = dbcp.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, liker);
 			rs = pstmt.executeQuery();
