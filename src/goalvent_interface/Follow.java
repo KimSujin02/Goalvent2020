@@ -12,7 +12,7 @@ public interface Follow {
 	//나를 팔로우한 사람인가?
 	
 	public int follow(String id, String follow);
-	public int upFollow(String id, String follow);
+	public int cancleFollow(String id, String follow);
 	public ArrayList<String> follower(String id);
 	public ArrayList<String> following(String id);
 	public int confirmFollow(String myId, String otherId);
