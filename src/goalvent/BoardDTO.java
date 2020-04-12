@@ -8,7 +8,7 @@ public class BoardDTO {
 	private int category;
 	private String writer;
 	private String date;
-	private int like;
+	private int likecount;
 	private String ip;
 	public int getNum() {
 		return num;
@@ -50,13 +50,13 @@ public class BoardDTO {
 		return date;
 	}
 	public void setDate(String date) {
-		this.date = date.substring(0, 4) + "-" + date.substring(4, 6) + "-" + date.substring(6, 8) + " " + date.substring(8, 10) + ":" + date.substring(10, 12);
+		this.date = date.substring(0, 4) + "³â " + date.substring(4, 6) + "¿ù " + date.substring(6, 8) + "ÀÏ " + date.substring(8, 10) + ":" + date.substring(10, 12);
 	}
-	public int getLike() {
-		return like;
+	public int getLikecount() {
+		return likecount;
 	}
-	public void setLike(int like) {
-		this.like = like;
+	public void setLikecount(int likecount) {
+		this.likecount = likecount;
 	}
 	public String getIp() {
 		return ip;
