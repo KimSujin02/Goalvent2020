@@ -72,7 +72,7 @@ public class FollowDAO implements Follow {
 	@Override
 	public ArrayList<String> follower(String id) {
 		ArrayList<String> followList = new ArrayList<String>();
-		sql = "SELECT following FROM id WHERE follow=?";
+		sql = "SELECT id FROM follow WHERE following=?";
 		try {
 			conn = dbcp.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -82,8 +82,8 @@ public class FollowDAO implements Follow {
 				followList.add(rs.getString("id"));
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("팔로워 리스트 불러오기 실패입니다.");
 		}
 		return followList;
 	}
@@ -101,8 +101,8 @@ public class FollowDAO implements Follow {
 				followList.add(rs.getString("following"));
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("팔로잉 리스트 불러오기 실패입니다.");
 		}
 		return followList;
 	}
