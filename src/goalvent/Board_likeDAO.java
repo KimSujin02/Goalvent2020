@@ -19,18 +19,20 @@ public class Board_likeDAO implements like {
 	}
 
 	@Override
-	public int boardLike(int num, String liker, String date) {
+	public int boardLike(int num, String liker) {
 		int result = 1; // 성공 1 실패 0
-		sql = "INSERT INTO board_like VALUES(?, ?, ?)";
+		BoardDAO dao = new BoardDAO();
+		sql = "INSERT INTO board_like VALUES(?, ?, date_format(NOW(), '%Y%m%d%H%i%s'))";
 		try {
 			conn = dbcp.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setString(2, liker);
-			pstmt.setString(3, date);
 			pstmt.executeUpdate();
-			sql = "UPDATE board SET like=like+1 WHERE num=1";
+			sql = "UPDATE board SET likecount=likecount+1 WHERE num=?";
+			conn = dbcp.getConnection();
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
 			pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
