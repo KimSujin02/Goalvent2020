@@ -19,20 +19,73 @@ public class FollowDAO implements Follow {
 	
 	@Override
 	public int follow(String id, String follow) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = 1;
+		sql = "INSERT INTO follow VALUES(?, ?)";
+		try {
+			conn = dbcp.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, follow);
+			pstmt.executeUpdate();
+			sql = "UPDATE member SET following=following+1 WHERE id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+			sql = "UPDATE member SET follower=follower+1 WHERE id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, follow);
+			pstmt.executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("팔로우 실패");
+			result = 0;
+		}
+		return result;
 	}
 
 	@Override
-	public int upFollow(String id, String follow) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int cancleFollow(String id, String follow) {
+		int result = 1;
+		sql = "DELETE FROM follow WHERE id=?, following=?";
+		try {
+			conn = dbcp.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2,  follow);
+			pstmt.executeUpdate();
+			sql = "UPDATE member SET following=following-1 WHERE id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+			sql = "UPDATE member SET follower=follower-1 WHERE id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, follow);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("팔로우 취소 실패입니다.");
+			result = 0;
+		}
+		return result;
 	}
 
 	@Override
 	public ArrayList<String> follower(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<String> followList = new ArrayList<String>();
+		sql = "SELECT following FROM id WHERE follow=?";
+		try {
+			conn = dbcp.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				followList.add(rs.getString("id"));
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return followList;
 	}
 	
 	@Override
@@ -52,12 +105,6 @@ public class FollowDAO implements Follow {
 			e.printStackTrace();
 		}
 		return followList;
-	}
-
-	@Override
-	public int confirmFollow(String myId, String otherId) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 }
