@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+<Resource
+name="jdbc/illuwa" auth="container" 
+type="javax.sql.DataSource" driverClassName="org.gjt.mm.mysql.Driver"
+url="jdbc:mysql://localhost:3306/illuwa"
+username="root" password="mirim2"
+maxActive="20" maxIdle="10" maxWait="-1"/>
+</Context>
