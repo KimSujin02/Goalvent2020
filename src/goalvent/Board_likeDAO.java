@@ -45,7 +45,7 @@ public class Board_likeDAO implements like {
 	@Override
 	public int deleteLike(int num, String liker) {
 		int result = 1; // 성공 1 실패 0
-		sql = "DELETE * FROM board_like WHERE num=?, liker=?";
+		sql = "DELETE FROM board_like WHERE num=?, liker=?";
 		try {
 			conn = dbcp.getConnection();
 			pstmt = conn.prepareStatement(sql);
