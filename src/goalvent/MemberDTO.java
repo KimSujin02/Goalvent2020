@@ -10,6 +10,8 @@ public class MemberDTO {
 	private String goal;
 	private String explain;
 	private String image;
+	private int following;
+	private int follower;
 	
 	public String getId() {
 		return id;
@@ -64,6 +66,18 @@ public class MemberDTO {
 	}
 	public void setImage(String image) {
 		this.image = image;
+	}
+	public int getFollowing() {
+		return following;
+	}
+	public void setFollowing(int following) {
+		this.following = following;
+	}
+	public int getFollower() {
+		return follower;
+	}
+	public void setFollower(int follower) {
+		this.follower = follower;
 	}
 	
 }
