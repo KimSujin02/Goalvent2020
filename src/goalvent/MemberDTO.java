@@ -7,6 +7,8 @@ public class MemberDTO {
 	private String nickname;
 	private String email;
 	private String tel;
+	private String goal;
+	private String explain;
 	private String image;
 	
 	public String getId() {
@@ -44,6 +46,18 @@ public class MemberDTO {
 	}
 	public void setTel(String tel) {
 		this.tel = tel;
+	}
+	public String getGoal() {
+		return goal;
+	}
+	public void setGoal(String goal) {
+		this.goal = goal;
+	}
+	public String getExplain() {
+		return explain;
+	}
+	public void setExplain(String explain) {
+		this.explain = explain;
 	}
 	public String getImage() {
 		return image;
