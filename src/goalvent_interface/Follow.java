@@ -1,6 +1,6 @@
 package goalvent_interface;
 
-import java.util.Vector;
+import java.util.*;
 
 public interface Follow {
 	//ÆÈ·Î¿ìÇÏ±â
@@ -13,7 +13,7 @@ public interface Follow {
 	
 	public int follow(String id, String follow);
 	public int upFollow(String id, String follow);
-	public Vector<String> follower(String id);
-	public Vector<String> following(String id);
+	public ArrayList<String> follower(String id);
+	public ArrayList<String> following(String id);
 	public int confirmFollow(String myId, String otherId);
 }
