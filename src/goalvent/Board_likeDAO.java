@@ -21,7 +21,6 @@ public class Board_likeDAO implements like {
 	@Override
 	public int boardLike(int num, String liker) {
 		int result = 1; // 성공 1 실패 0
-		BoardDAO dao = new BoardDAO();
 		sql = "INSERT INTO board_like VALUES(?, ?, date_format(NOW(), '%Y%m%d%H%i%s'))";
 		try {
 			conn = dbcp.getConnection();
