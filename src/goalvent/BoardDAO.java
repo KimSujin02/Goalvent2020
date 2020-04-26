@@ -31,8 +31,7 @@ public class BoardDAO implements Board{
 			pstmt.setString(4, boardDTO.getImage2());
 			pstmt.setInt(5, boardDTO.getCategory());
 			pstmt.setString(6, boardDTO.getWriter());
-			pstmt.setString(7, boardDTO.getDate());
-			pstmt.setString(8, boardDTO.getIp());
+			pstmt.setString(7, boardDTO.getIp());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
