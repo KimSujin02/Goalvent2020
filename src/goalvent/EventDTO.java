@@ -5,7 +5,7 @@ public class EventDTO {
 	private String content;
 	private String writer;
 	private String date;
-	private int like;
+	private int likecount;
 	private String image1;
 	private String image2;
 	private String ip;
@@ -34,11 +34,11 @@ public class EventDTO {
 	public void setDate(String date) {
 		this.date = date.substring(0, 4) + "-" + date.substring(4, 6) + "-" + date.substring(6, 8) + " " + date.substring(8, 10) + ":" + date.substring(10, 12);
 }
-	public int getLike() {
-		return like;
+	public int getLikecount() {
+		return likecount;
 	}
-	public void setLike(int like) {
-		this.like = like;
+	public void setLikecount(int likecount) {
+		this.likecount = likecount;
 	}
 	public String getImage1() {
 		return image1;

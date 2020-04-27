@@ -93,7 +93,7 @@ public class EventDAO implements Event{
 				dto.setContent(rs.getString("content"));
 				dto.setWriter(rs.getString("writer"));
 				dto.setDate(rs.getString("date"));
-				dto.setLike(rs.getInt("like"));
+				dto.setLikecount(rs.getInt("likecount"));
 				dto.setImage1(rs.getString("image1"));
 				dto.setImage2(rs.getString("image2"));
 				vlist.add(dto);
@@ -123,7 +123,7 @@ public class EventDAO implements Event{
 					dto.setContent(rs.getString("content"));
 					dto.setWriter(rs.getString("writer"));
 					dto.setDate(rs.getString("date"));
-					dto.setLike(rs.getInt("like"));
+					dto.setLikecount(rs.getInt("likecount"));
 					dto.setImage1(rs.getString("image1"));
 					dto.setImage2(rs.getString("image2"));
 					vlist.add(dto);
