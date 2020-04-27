@@ -44,7 +44,7 @@ public class BoardDAO implements Board{
 	@Override
 	public int updateBoard(BoardDTO boardDTO) {
 		int result =1;
-		sql = "UPDATE board SET content=?, image1=?, image2=?, category=?, writer=? WHERE num=?";
+		sql = "UPDATE board SET content=?, image1=?, image2=?, category=? WHERE num=?";
 		try {
 			conn = dbcp.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -52,8 +52,7 @@ public class BoardDAO implements Board{
 			pstmt.setString(2, boardDTO.getImage1());
 			pstmt.setString(3, boardDTO.getImage2());
 			pstmt.setInt(4, boardDTO.getCategory());
-			pstmt.setString(5, boardDTO.getWriter());
-			pstmt.setInt(6, boardDTO.getNum());
+			pstmt.setInt(5, boardDTO.getNum());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
