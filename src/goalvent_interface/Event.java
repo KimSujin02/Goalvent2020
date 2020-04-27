@@ -17,6 +17,5 @@ public interface Event {
 	public int deleteEvent(EventDTO eventDTO);
 	public Vector<EventDTO> allEvent();
 	public Vector<EventDTO> filterEvent(String id);
-	public int updateLike(int num);
 	
 }
